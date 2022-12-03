@@ -192,7 +192,7 @@ function setup_folly() {
 
   if [ ! -d "$FOLLY_DIR" ] ; then
     echo -e "${COLOR_GREEN}[ INFO ] Cloning folly repo ${COLOR_OFF}"
-    git clone https://github.com/facebook/folly.git "$FOLLY_DIR"
+    git clone -b v2019.10.07.00 https://github.com/facebook/folly.git "$FOLLY_DIR"
     if [[ -z "${MVFST_SKIP_SYSTEM_DEPENDENCIES-}" ]]; then
       echo -e "${COLOR_GREEN}[ INFO ] install dependencies ${COLOR_OFF}"
       if [ "$Platform" = "Linux" ]; then
@@ -249,7 +249,7 @@ function setup_fizz() {
   FIZZ_BUILD_DIR=$DEPS_DIR/fizz/build/
   if [ ! -d "$FIZZ_DIR" ] ; then
     echo -e "${COLOR_GREEN}[ INFO ] Cloning fizz repo ${COLOR_OFF}"
-    git clone https://github.com/facebookincubator/fizz "$FIZZ_DIR"
+    git clone -b v2019.10.07.00 https://github.com/facebookincubator/fizz "$FIZZ_DIR"
   fi
 
   synch_dependency_to_commit "$FIZZ_DIR" "$MVFST_ROOT_DIR/build/deps/github_hashes/facebookincubator/fizz-rev.txt"
